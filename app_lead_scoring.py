@@ -18,9 +18,75 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from datetime import datetime
+import gspread
 
 # Fix SSL context for macOS
 ssl._create_default_https_context = ssl._create_unverified_context
+
+
+def get_gspread_client():
+    """Khởi tạo gspread client từ st.secrets (Cloud) hoặc service_account.json (Local)"""
+    try:
+        if "gcp_service_account" in st.secrets:
+            creds_dict = dict(st.secrets["gcp_service_account"])
+            if "private_key" in creds_dict and isinstance(creds_dict["private_key"], str):
+                creds_dict["private_key"] = creds_dict["private_key"].replace("\\n", "\n")
+            return gspread.service_account_from_dict(creds_dict)
+    except Exception:
+        pass
+
+    if os.path.exists("service_account.json"):
+        try:
+            return gspread.service_account(filename="service_account.json")
+        except Exception:
+            pass
+
+    return None
+
+
+def sync_to_google_sheet(df, sheet_url, worksheet_title="Lead_Scored_Reviewed"):
+    """Tạo hoặc cập nhật Tab Lead_Scored_Reviewed trên Google Sheet với dữ liệu đã được duyệt"""
+    gc = get_gspread_client()
+    if not gc:
+        raise ValueError("Chưa tìm thấy cấu hình Service Account trong st.secrets hoặc service_account.json!")
+    
+    sh = gc.open_by_url(sheet_url)
+    
+    try:
+        ws = sh.worksheet(worksheet_title)
+    except gspread.WorksheetNotFound:
+        ws = sh.add_worksheet(title=worksheet_title, rows=max(100, len(df) + 15), cols=max(20, len(df.columns) + 5))
+        
+    export_df = df.copy()
+    export_df["Trạng Thái Duyệt"] = export_df["human_approved"].apply(lambda x: "ĐÃ DUYỆT" if x else "CHƯA DUYỆT")
+    export_df["Cập Nhật Lúc"] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    
+    columns_map = {
+        "id": "Mã ID",
+        "Trạng Thái Duyệt": "Trạng Thái Duyệt",
+        "ten_khach": "Họ Tên",
+        "sdt_chuan": "Số ĐT",
+        "total_score": "Điểm AI",
+        "ai_tier": "AI Gợi Ý",
+        "final_tier": "Tier Thực Tế",
+        "sales_assignee": "Sales Phụ Trách",
+        "segment": "Phân Khúc BĐS",
+        "sla": "SLA Hành Động",
+        "review_note": "Ghi Chú Thẩm Định",
+        "pitch": "Kịch Bản Tiếp Cận",
+        "vip_flags": "Cờ VIP",
+        "red_flags": "Cờ Đỏ (Red Flags)",
+        "nhu_cau_mo_ta": "Mô Tả Nhu Cầu",
+        "Cập Nhật Lúc": "Thời Gian Cập Nhật"
+    }
+    
+    cols_to_use = [k for k in columns_map.keys() if k in export_df.columns]
+    export_df = export_df[cols_to_use].rename(columns=columns_map)
+    
+    values = [export_df.columns.tolist()] + export_df.fillna("").values.tolist()
+    ws.clear()
+    ws.update(values=values, range_name="A1")
+    return sh.url, worksheet_title
 
 # Cấu hình giao diện Streamlit
 st.set_page_config(
@@ -412,6 +478,16 @@ with st.sidebar:
             st.info("Đã reset trạng thái duyệt về ban đầu.")
             st.rerun()
 
+    st.markdown("---")
+    st.subheader("🔐 Google Service Account")
+    gc_test = get_gspread_client()
+    if gc_test:
+        st.success("🟢 Service Account: Đã kết nối")
+        st.caption("`streamlit-lead-score@agent-expense-tracker.iam.gserviceaccount.com`")
+    else:
+        st.warning("🟡 Service Account: Chưa cấu hình (Chỉ xem)")
+        st.caption("Cần cấu hình Secrets trên Streamlit Cloud để bật đồng bộ 2 chiều.")
+
 
 # ==========================================
 # 4. MAIN DASHBOARD CONTENT
@@ -566,10 +642,9 @@ with tab_editor:
         key="leads_editor"
     )
 
-    col_btn1, col_btn2 = st.columns([2, 4])
+    col_btn1, col_btn2, col_btn3 = st.columns([2.5, 3.5, 2.5])
     with col_btn1:
-        if st.button("💾 Lưu Trạng Thái Duyệt Vào Hệ Thống", type="primary", use_container_width=True):
-            # Cập nhật ngược lại session_state bằng index/id
+        if st.button("💾 Lưu Trạng Thái Duyệt", type="primary", use_container_width=True):
             for _, row in edited_df.iterrows():
                 row_id = row["id"]
                 match_idx = st.session_state["leads_data"][st.session_state["leads_data"]["id"] == row_id].index
@@ -583,16 +658,29 @@ with tab_editor:
             st.rerun()
 
     with col_btn2:
+        if st.button("☁️ Đồng Bộ Lên Google Sheet", use_container_width=True):
+            # Lấy URL Google Sheet hiện tại từ sidebar
+            target_sheet_url = sheet_url_input if "sheet_url_input" in locals() and sheet_url_input else DEFAULT_SHEET_URL
+            with st.spinner("Đang kết nối Service Account và đẩy dữ liệu lên Google Sheet..."):
+                try:
+                    s_url, ws_title = sync_to_google_sheet(st.session_state["leads_data"], target_sheet_url, "Lead_Scored_Reviewed")
+                    st.success(f"🎉 Đã đồng bộ thành công vào Tab **'{ws_title}'**!")
+                    st.markdown(f"👉 [Mở Google Sheet để kiểm tra]({s_url})")
+                except Exception as ex:
+                    st.error(f"❌ Lỗi đồng bộ Google Sheet: {ex}")
+                    st.caption("Hãy kiểm tra cấu hình Secrets trên Streamlit Cloud hoặc quyền chia sẻ của Google Sheet.")
+
+    with col_btn3:
         # Xuất file Excel đã duyệt
         excel_buffer = io.BytesIO()
         with pd.ExcelWriter(excel_buffer, engine="openpyxl") as writer:
             st.session_state["leads_data"].to_excel(writer, sheet_name="Reviewed Leads", index=False)
         st.download_button(
-            label="📥 Tải File Báo Cáo Excel Đã Thẩm Định (.xlsx)",
+            label="📥 Tải File Excel (.xlsx)",
             data=excel_buffer.getvalue(),
             file_name=f"BDS_Lead_Scoring_Reviewed_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            use_container_width=False
+            use_container_width=True
         )
 
 # ----------------------------------------------------

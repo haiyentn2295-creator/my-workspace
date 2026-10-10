@@ -1,0 +1,40 @@
+{
+    "expenses": [
+        {
+            "Date": "02/05",
+            "Employee": "Mai",
+            "Item": "An toi tiep khach",
+            "Amount": 850000,
+            "Category": "Tiep khach",
+            "Status": "Can xem lai",
+            "AI Note": "Khoản chi lớn hơn 500,000đ, cần phê duyệt cấp quản lý và bổ sung chứng từ tiếp khách."
+        },
+        {
+            "Date": "02/05",
+            "Employee": "Nam",
+            "Item": "Taxi di gap khach",
+            "Amount": 220000,
+            "Category": "Di chuyen",
+            "Status": "Can chung tu",
+            "AI Note": "Khoản chi liên quan đến khách hàng, cần cung cấp hóa đơn/biên lai taxi."
+        },
+        {
+            "Date": "02/05",
+            "Employee": "Linh",
+            "Item": "Ca phe team",
+            "Amount": 180000,
+            "Category": "An uong",
+            "Status": "Hop le",
+            "AI Note": "Chi phí ăn uống nội bộ, mức chi nằm trong hạn mức cho phép."
+        },
+        {
+            "Date": "02/05",
+            "Employee": "An",
+            "Item": "Mua van phong pham",
+            "Amount": 135000,
+            "Category": "Van phong",
+            "Status": "Hop le",
+            "AI Note": "Mua sắm vật tư văn phòng, đầy đủ thông tin và mức chi hợp lý."
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+/* ==========================================================================
+   AI4A BI DASHBOARD DESIGN TOKENS
+   Standard: Dark Mode, Glassmorphism, High-Contrast Glow & Vibrant Accents
+   ========================================================================== */
+
+:root {
+  /* Surface & Canvas Colors */
+  --bg-canvas: #080c14;
+  --bg-surface-glass: rgba(18, 24, 38, 0.65);
+  --bg-surface-glass-subtle: rgba(255, 255, 255, 0.03);
+  --bg-surface-glass-hover: rgba(26, 35, 54, 0.75);
+  --bg-surface-elevated: rgba(30, 41, 59, 0.95);
+
+  /* Border & Glass Lines */
+  --border-glass-subtle: 1px solid rgba(255, 255, 255, 0.08);
+  --border-glass-medium: 1px solid rgba(255, 255, 255, 0.15);
+  --border-glass-highlight: 1px solid rgba(0, 240, 255, 0.4);
+
+  /* High Contrast Accent Colors (Neon / Vibrant Glow) */
+  --accent-cyan: #00f0ff;
+  --accent-cyan-bg: rgba(0, 240, 255, 0.12);
+  --accent-cyan-glow: rgba(0, 240, 255, 0.35);
+
+  --accent-emerald: #10b981;
+  --accent-emerald-bright: #00ff88;
+  --accent-emerald-bg: rgba(16, 185, 129, 0.15);
+  --accent-emerald-glow: rgba(16, 185, 129, 0.35);
+
+  --accent-crimson: #f43f5e;
+  --accent-crimson-bright: #ff3366;
+  --accent-crimson-bg: rgba(244, 63, 94, 0.15);
+  --accent-crimson-glow: rgba(244, 63, 94, 0.35);
+
+  --accent-violet: #8b5cf6;
+  --accent-violet-bright: #a855f7;
+  --accent-violet-bg: rgba(139, 92, 246, 0.15);
+  --accent-violet-glow: rgba(139, 92, 246, 0.35);
+
+  --accent-amber: #f59e0b;
+  --accent-amber-bright: #ffb800;
+  --accent-amber-bg: rgba(245, 158, 11, 0.15);
+  --accent-amber-glow: rgba(245, 158, 11, 0.35);
+
+  /* Text & Contrast Hierarchy */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0f172a;
+
+  /* Shadows & Elevation */
+  --shadow-glass: 0 20px 40px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  --shadow-glass-hover: 0 24px 48px -10px rgba(0, 240, 255, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  --shadow-glow-cyan: 0 0 25px rgba(0, 240, 255, 0.25);
+  --shadow-glow-emerald: 0 0 25px rgba(16, 185, 129, 0.25);
+
+  /* Optics & Blur */
+  --glass-blur: blur(16px) saturate(180%);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Animation Timings */
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.15s ease-out;
+}

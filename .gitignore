@@ -1,0 +1,23 @@
+# Environments & Credentials
+.env
+.env.local
+*.env
+Credentials.json
+credentials*.json
+token*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+dist/

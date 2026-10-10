@@ -1,0 +1,11 @@
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] === BẮT ĐẦU KHỞI TẠO VÀ THỰC THI SUBAGENT ===
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] Nạp cấu hình từ: agent-convert-raw-to-markdown.md
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] Kích hoạt pipeline: /Users/mac/Documents/Haiyentn2295/Agentic AI/my-workspace/.venv/bin/python /Users/mac/Documents/Haiyentn2295/Agentic AI/my-workspace/scripts/orchestrate_converters.py --dry-run
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] [OUTPUT] =================================================================
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] [OUTPUT] 🤖 MULTI-AGENT RAW TO MARKDOWN ORCHESTRATOR
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] [OUTPUT] 📂 Thư mục nguồn : /Users/mac/Documents/Haiyentn2295/Agentic AI/my-workspace/knowledge-base/raw
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] [OUTPUT] 📁 Thư mục đầu ra: /Users/mac/Documents/Haiyentn2295/Agentic AI/my-workspace/knowledge-base/processed
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] [OUTPUT] 🗄️ Thư mục lưu trữ: /Users/mac/Documents/Haiyentn2295/Agentic AI/my-workspace/knowledge-base/raw/archive
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] [OUTPUT] =================================================================
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] [OUTPUT] ℹ️ Không tìm thấy tệp tin nào cần xử lý trong knowledge-base/raw/.
+[2026-09-20 22:19:34] [SUBAGENT: agent-convert-raw-to-markdown] === SUBAGENT HOÀN THÀNH NHIỆM VỤ THÀNH CÔNG ===

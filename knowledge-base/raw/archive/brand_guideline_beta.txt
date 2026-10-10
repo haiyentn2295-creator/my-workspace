@@ -1,0 +1,18 @@
+BRAND GUIDELINE - CÔNG TY BETA SOLUTIONS
+
+1. Bảng màu thương hiệu (Brand Color Palette):
+- Tím Hoàng Gia (Đại diện cho Ngân sách / Budget): Hex #7C3AED
+- Xanh Ngọc (Đại diện cho Chi tiêu / Expense): Hex #06B6D4
+- Hồng San Hô (Đại diện cho Vượt ngân sách / Over Budget Warning): Hex #F43F5E
+
+2. Màu nền & Giao diện (Theme & Background):
+- Phong cách thiết kế: Dark Mode (Nền tối chuyên nghiệp) kết hợp hiệu ứng kính mờ (Glassmorphism).
+- Nền chính (Main Background): Dark Slate (#0F172A hoặc #1E293B).
+- Font chữ mặc định: Sử dụng font "Inter", "Plus Jakarta Sans" hoặc "Roboto" cho toàn bộ Dashboard, văn bản và biểu đồ.
+
+3. Quy định hiển thị & Format số liệu (Bắt buộc):
+- Mọi biểu đồ báo cáo quản lý ngân sách BẮT BUỘC phải dùng màu Tím Hoàng Gia (#7C3AED) để thể hiện Ngân sách.
+- BẮT BUỘC dùng màu Xanh Ngọc (#06B6D4) để thể hiện Chi tiêu.
+- BẮT BUỘC dùng màu Hồng San Hô (#F43F5E) cho các cảnh báo hoặc chỉ số Vượt ngân sách.
+- Format tiền tệ BẮT BUỘC theo chuẩn VNĐ (đơn vị Triệu VNĐ hoặc Tỷ VNĐ tùy theo quy mô số liệu).
+- Tuyệt đối không tự ý phối các màu ngẫu nhiên khác ngoài bảng màu này để đảm bảo đồng bộ thương hiệu Beta Solutions.

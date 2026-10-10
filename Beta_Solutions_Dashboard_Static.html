@@ -1,0 +1,2995 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beta Solutions — Dashboard Quản Lý Ngân Sách</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  
+  
+    <!-- STATIC SNAPSHOT EMBEDDED DATA -->
+    <script>
+      window.IS_STATIC_DASHBOARD = true;
+      window.STATIC_DATA = {
+  "kpi": {
+    "tong_ngan_sach": 39640000000,
+    "tong_chi_tieu": 39981204939,
+    "chenh_lech": -341204939,
+    "so_gd_vuot": 32,
+    "tong_so_gd": 96,
+    "ty_le_vuot": 33.3,
+    "ty_le_su_dung": 100.9
+  },
+  "by_quy": [
+    {
+      "quy": "Q1",
+      "ngan_sach": 9090000000,
+      "chi_tieu": 9214845173,
+      "chenh_lech": -124845173
+    },
+    {
+      "quy": "Q2",
+      "ngan_sach": 9390000000,
+      "chi_tieu": 9339034508,
+      "chenh_lech": 50965492
+    },
+    {
+      "quy": "Q3",
+      "ngan_sach": 10840000000,
+      "chi_tieu": 10852645061,
+      "chenh_lech": -12645061
+    },
+    {
+      "quy": "Q4",
+      "ngan_sach": 10320000000,
+      "chi_tieu": 10574680197,
+      "chenh_lech": -254680197
+    }
+  ],
+  "by_phong_ban": [
+    {
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "ngan_sach": 7700000000,
+      "chi_tieu": 7930653404,
+      "chenh_lech": -230653404,
+      "so_gd_vuot": 8
+    },
+    {
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "ngan_sach": 7050000000,
+      "chi_tieu": 6979454606,
+      "chenh_lech": 70545394,
+      "so_gd_vuot": 4
+    },
+    {
+      "phong_ban": "Marketing & Truyền thông",
+      "ngan_sach": 6270000000,
+      "chi_tieu": 6650671579,
+      "chenh_lech": -380671579,
+      "so_gd_vuot": 6
+    },
+    {
+      "phong_ban": "Tài chính - Kế toán",
+      "ngan_sach": 6370000000,
+      "chi_tieu": 6600675169,
+      "chenh_lech": -230675169,
+      "so_gd_vuot": 6
+    },
+    {
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "ngan_sach": 6650000000,
+      "chi_tieu": 6551318604,
+      "chenh_lech": 98681396,
+      "so_gd_vuot": 5
+    },
+    {
+      "phong_ban": "Kinh doanh (Sales)",
+      "ngan_sach": 5600000000,
+      "chi_tieu": 5268431577,
+      "chenh_lech": 331568423,
+      "so_gd_vuot": 3
+    }
+  ],
+  "transactions": [
+    {
+      "ma_gd": "TX-2026-0001",
+      "ngay": "2026-01-29",
+      "quy": "Q1",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Hạ tầng Cloud AWS/GCP",
+      "ngan_sach": 200000000,
+      "chi_tieu": 232002345,
+      "chenh_lech": -32002345,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 116.0
+    },
+    {
+      "ma_gd": "TX-2026-0002",
+      "ngay": "2026-03-11",
+      "quy": "Q1",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Bản quyền phần mềm AI & Dev",
+      "ngan_sach": 230000000,
+      "chi_tieu": 204579446,
+      "chenh_lech": 25420554,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 88.9
+    },
+    {
+      "ma_gd": "TX-2026-0003",
+      "ngay": "2026-01-12",
+      "quy": "Q1",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Nâng cấp hệ thống máy chủ",
+      "ngan_sach": 170000000,
+      "chi_tieu": 120512855,
+      "chenh_lech": 49487145,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 70.9
+    },
+    {
+      "ma_gd": "TX-2026-0004",
+      "ngay": "2026-03-13",
+      "quy": "Q1",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "An toàn thông tin & Bảo mật",
+      "ngan_sach": 330000000,
+      "chi_tieu": 425966472,
+      "chenh_lech": -95966472,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 129.1
+    },
+    {
+      "ma_gd": "TX-2026-0005",
+      "ngay": "2026-02-23",
+      "quy": "Q1",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Chiến dịch Quảng cáo Meta & Google",
+      "ngan_sach": 310000000,
+      "chi_tieu": 277875007,
+      "chenh_lech": 32124993,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 89.6
+    },
+    {
+      "ma_gd": "TX-2026-0006",
+      "ngay": "2026-01-01",
+      "quy": "Q1",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Sự kiện ra mắt sản phẩm mới",
+      "ngan_sach": 340000000,
+      "chi_tieu": 264483755,
+      "chenh_lech": 75516245,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 77.8
+    },
+    {
+      "ma_gd": "TX-2026-0007",
+      "ngay": "2026-01-20",
+      "quy": "Q1",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Thuê KOLs và Media Agency",
+      "ngan_sach": 260000000,
+      "chi_tieu": 206770237,
+      "chenh_lech": 53229763,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 79.5
+    },
+    {
+      "ma_gd": "TX-2026-0008",
+      "ngay": "2026-01-12",
+      "quy": "Q1",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Sản xuất Video & Brand Awareness",
+      "ngan_sach": 330000000,
+      "chi_tieu": 262101335,
+      "chenh_lech": 67898665,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 79.4
+    },
+    {
+      "ma_gd": "TX-2026-0009",
+      "ngay": "2026-03-19",
+      "quy": "Q1",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Chi phí tiếp khách & đàm phán hợp đồng",
+      "ngan_sach": 540000000,
+      "chi_tieu": 750058783,
+      "chenh_lech": -210058783,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 138.9
+    },
+    {
+      "ma_gd": "TX-2026-0010",
+      "ngay": "2026-03-10",
+      "quy": "Q1",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Công tác phí thị trường miền Nam & Trung",
+      "ngan_sach": 390000000,
+      "chi_tieu": 352686711,
+      "chenh_lech": 37313289,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 90.4
+    },
+    {
+      "ma_gd": "TX-2026-0011",
+      "ngay": "2026-03-12",
+      "quy": "Q1",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Thưởng hoa hồng mở rộng đại lý",
+      "ngan_sach": 210000000,
+      "chi_tieu": 169257821,
+      "chenh_lech": 40742179,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 80.6
+    },
+    {
+      "ma_gd": "TX-2026-0012",
+      "ngay": "2026-02-16",
+      "quy": "Q1",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Tham gia triển lãm B2B Quốc tế",
+      "ngan_sach": 430000000,
+      "chi_tieu": 375469778,
+      "chenh_lech": 54530222,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 87.3
+    },
+    {
+      "ma_gd": "TX-2026-0013",
+      "ngay": "2026-03-26",
+      "quy": "Q1",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Tuyển dụng Kỹ sư AI & Quản lý cấp cao",
+      "ngan_sach": 790000000,
+      "chi_tieu": 851479427,
+      "chenh_lech": -61479427,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 107.8
+    },
+    {
+      "ma_gd": "TX-2026-0014",
+      "ngay": "2026-01-30",
+      "quy": "Q1",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Chương trình đào tạo kỹ năng Clear AI",
+      "ngan_sach": 350000000,
+      "chi_tieu": 341551709,
+      "chenh_lech": 8448291,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 97.6
+    },
+    {
+      "ma_gd": "TX-2026-0015",
+      "ngay": "2026-02-16",
+      "quy": "Q1",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Teambuilding & Văn hóa doanh nghiệp",
+      "ngan_sach": 180000000,
+      "chi_tieu": 148851879,
+      "chenh_lech": 31148121,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 82.7
+    },
+    {
+      "ma_gd": "TX-2026-0016",
+      "ngay": "2026-02-04",
+      "quy": "Q1",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Khám sức khỏe định kỳ & Bảo hiểm",
+      "ngan_sach": 260000000,
+      "chi_tieu": 197252111,
+      "chenh_lech": 62747889,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 75.9
+    },
+    {
+      "ma_gd": "TX-2026-0017",
+      "ngay": "2026-02-01",
+      "quy": "Q1",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Kiểm toán độc lập báo cáo năm",
+      "ngan_sach": 150000000,
+      "chi_tieu": 112187823,
+      "chenh_lech": 37812177,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 74.8
+    },
+    {
+      "ma_gd": "TX-2026-0018",
+      "ngay": "2026-03-23",
+      "quy": "Q1",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Phí bản quyền phần mềm ERP Fast",
+      "ngan_sach": 260000000,
+      "chi_tieu": 201652201,
+      "chenh_lech": 58347799,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 77.6
+    },
+    {
+      "ma_gd": "TX-2026-0019",
+      "ngay": "2026-01-08",
+      "quy": "Q1",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Tư vấn luật & Thuế doanh nghiệp",
+      "ngan_sach": 770000000,
+      "chi_tieu": 908379082,
+      "chenh_lech": -138379082,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 118.0
+    },
+    {
+      "ma_gd": "TX-2026-0020",
+      "ngay": "2026-02-21",
+      "quy": "Q1",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Chi phí giao dịch ngân hàng & POS",
+      "ngan_sach": 350000000,
+      "chi_tieu": 323894488,
+      "chenh_lech": 26105512,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 92.5
+    },
+    {
+      "ma_gd": "TX-2026-0021",
+      "ngay": "2026-03-14",
+      "quy": "Q1",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Nghiên cứu Fine-tuning mô hình AI",
+      "ngan_sach": 400000000,
+      "chi_tieu": 566101779,
+      "chenh_lech": -166101779,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 141.5
+    },
+    {
+      "ma_gd": "TX-2026-0022",
+      "ngay": "2026-03-24",
+      "quy": "Q1",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Mua sắm thiết bị GPU phục vụ Training",
+      "ngan_sach": 460000000,
+      "chi_tieu": 574858551,
+      "chenh_lech": -114858551,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 125.0
+    },
+    {
+      "ma_gd": "TX-2026-0023",
+      "ngay": "2026-03-13",
+      "quy": "Q1",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Đăng ký sáng chế & sở hữu trí tuệ",
+      "ngan_sach": 640000000,
+      "chi_tieu": 707745361,
+      "chenh_lech": -67745361,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 110.6
+    },
+    {
+      "ma_gd": "TX-2026-0024",
+      "ngay": "2026-03-16",
+      "quy": "Q1",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Thuê chuyên gia cố vấn công nghệ",
+      "ngan_sach": 740000000,
+      "chi_tieu": 639126217,
+      "chenh_lech": 100873783,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 86.4
+    },
+    {
+      "ma_gd": "TX-2026-0025",
+      "ngay": "2026-04-18",
+      "quy": "Q2",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Hạ tầng Cloud AWS/GCP",
+      "ngan_sach": 570000000,
+      "chi_tieu": 558173194,
+      "chenh_lech": 11826806,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 97.9
+    },
+    {
+      "ma_gd": "TX-2026-0026",
+      "ngay": "2026-04-15",
+      "quy": "Q2",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Bản quyền phần mềm AI & Dev",
+      "ngan_sach": 710000000,
+      "chi_tieu": 647249492,
+      "chenh_lech": 62750508,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 91.2
+    },
+    {
+      "ma_gd": "TX-2026-0027",
+      "ngay": "2026-05-25",
+      "quy": "Q2",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Nâng cấp hệ thống máy chủ",
+      "ngan_sach": 250000000,
+      "chi_tieu": 230445555,
+      "chenh_lech": 19554445,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 92.2
+    },
+    {
+      "ma_gd": "TX-2026-0028",
+      "ngay": "2026-05-30",
+      "quy": "Q2",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "An toàn thông tin & Bảo mật",
+      "ngan_sach": 820000000,
+      "chi_tieu": 986171125,
+      "chenh_lech": -166171125,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 120.3
+    },
+    {
+      "ma_gd": "TX-2026-0029",
+      "ngay": "2026-04-02",
+      "quy": "Q2",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Chiến dịch Quảng cáo Meta & Google",
+      "ngan_sach": 730000000,
+      "chi_tieu": 624079373,
+      "chenh_lech": 105920627,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 85.5
+    },
+    {
+      "ma_gd": "TX-2026-0030",
+      "ngay": "2026-05-05",
+      "quy": "Q2",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Sự kiện ra mắt sản phẩm mới",
+      "ngan_sach": 200000000,
+      "chi_tieu": 170070338,
+      "chenh_lech": 29929662,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 85.0
+    },
+    {
+      "ma_gd": "TX-2026-0031",
+      "ngay": "2026-05-29",
+      "quy": "Q2",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Thuê KOLs và Media Agency",
+      "ngan_sach": 490000000,
+      "chi_tieu": 599713989,
+      "chenh_lech": -109713989,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 122.4
+    },
+    {
+      "ma_gd": "TX-2026-0032",
+      "ngay": "2026-05-04",
+      "quy": "Q2",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Sản xuất Video & Brand Awareness",
+      "ngan_sach": 60000000,
+      "chi_tieu": 56714329,
+      "chenh_lech": 3285671,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 94.5
+    },
+    {
+      "ma_gd": "TX-2026-0033",
+      "ngay": "2026-04-14",
+      "quy": "Q2",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Chi phí tiếp khách & đàm phán hợp đồng",
+      "ngan_sach": 700000000,
+      "chi_tieu": 589505608,
+      "chenh_lech": 110494392,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 84.2
+    },
+    {
+      "ma_gd": "TX-2026-0034",
+      "ngay": "2026-04-26",
+      "quy": "Q2",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Công tác phí thị trường miền Nam & Trung",
+      "ngan_sach": 440000000,
+      "chi_tieu": 370544067,
+      "chenh_lech": 69455933,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 84.2
+    },
+    {
+      "ma_gd": "TX-2026-0035",
+      "ngay": "2026-06-07",
+      "quy": "Q2",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Thưởng hoa hồng mở rộng đại lý",
+      "ngan_sach": 250000000,
+      "chi_tieu": 186308432,
+      "chenh_lech": 63691568,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 74.5
+    },
+    {
+      "ma_gd": "TX-2026-0036",
+      "ngay": "2026-04-15",
+      "quy": "Q2",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Tham gia triển lãm B2B Quốc tế",
+      "ngan_sach": 60000000,
+      "chi_tieu": 50208575,
+      "chenh_lech": 9791425,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 83.7
+    },
+    {
+      "ma_gd": "TX-2026-0037",
+      "ngay": "2026-05-10",
+      "quy": "Q2",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Tuyển dụng Kỹ sư AI & Quản lý cấp cao",
+      "ngan_sach": 520000000,
+      "chi_tieu": 485090501,
+      "chenh_lech": 34909499,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 93.3
+    },
+    {
+      "ma_gd": "TX-2026-0038",
+      "ngay": "2026-04-11",
+      "quy": "Q2",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Chương trình đào tạo kỹ năng Clear AI",
+      "ngan_sach": 360000000,
+      "chi_tieu": 504433382,
+      "chenh_lech": -144433382,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 140.1
+    },
+    {
+      "ma_gd": "TX-2026-0039",
+      "ngay": "2026-06-08",
+      "quy": "Q2",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Teambuilding & Văn hóa doanh nghiệp",
+      "ngan_sach": 160000000,
+      "chi_tieu": 148557841,
+      "chenh_lech": 11442159,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 92.8
+    },
+    {
+      "ma_gd": "TX-2026-0040",
+      "ngay": "2026-06-10",
+      "quy": "Q2",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Khám sức khỏe định kỳ & Bảo hiểm",
+      "ngan_sach": 220000000,
+      "chi_tieu": 272824849,
+      "chenh_lech": -52824849,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 124.0
+    },
+    {
+      "ma_gd": "TX-2026-0041",
+      "ngay": "2026-05-25",
+      "quy": "Q2",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Kiểm toán độc lập báo cáo năm",
+      "ngan_sach": 270000000,
+      "chi_tieu": 254955937,
+      "chenh_lech": 15044063,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 94.4
+    },
+    {
+      "ma_gd": "TX-2026-0042",
+      "ngay": "2026-06-28",
+      "quy": "Q2",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Phí bản quyền phần mềm ERP Fast",
+      "ngan_sach": 330000000,
+      "chi_tieu": 300786504,
+      "chenh_lech": 29213496,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 91.1
+    },
+    {
+      "ma_gd": "TX-2026-0043",
+      "ngay": "2026-06-25",
+      "quy": "Q2",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Tư vấn luật & Thuế doanh nghiệp",
+      "ngan_sach": 310000000,
+      "chi_tieu": 251632531,
+      "chenh_lech": 58367469,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 81.2
+    },
+    {
+      "ma_gd": "TX-2026-0044",
+      "ngay": "2026-04-16",
+      "quy": "Q2",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Chi phí giao dịch ngân hàng & POS",
+      "ngan_sach": 530000000,
+      "chi_tieu": 447808254,
+      "chenh_lech": 82191746,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 84.5
+    },
+    {
+      "ma_gd": "TX-2026-0045",
+      "ngay": "2026-06-15",
+      "quy": "Q2",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Nghiên cứu Fine-tuning mô hình AI",
+      "ngan_sach": 370000000,
+      "chi_tieu": 438536663,
+      "chenh_lech": -68536663,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 118.5
+    },
+    {
+      "ma_gd": "TX-2026-0046",
+      "ngay": "2026-04-10",
+      "quy": "Q2",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Mua sắm thiết bị GPU phục vụ Training",
+      "ngan_sach": 760000000,
+      "chi_tieu": 864946084,
+      "chenh_lech": -104946084,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 113.8
+    },
+    {
+      "ma_gd": "TX-2026-0047",
+      "ngay": "2026-05-13",
+      "quy": "Q2",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Đăng ký sáng chế & sở hữu trí tuệ",
+      "ngan_sach": 130000000,
+      "chi_tieu": 183581840,
+      "chenh_lech": -53581840,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 141.2
+    },
+    {
+      "ma_gd": "TX-2026-0048",
+      "ngay": "2026-06-02",
+      "quy": "Q2",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Thuê chuyên gia cố vấn công nghệ",
+      "ngan_sach": 150000000,
+      "chi_tieu": 116696045,
+      "chenh_lech": 33303955,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 77.8
+    },
+    {
+      "ma_gd": "TX-2026-0049",
+      "ngay": "2026-09-12",
+      "quy": "Q3",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Hạ tầng Cloud AWS/GCP",
+      "ngan_sach": 330000000,
+      "chi_tieu": 297837777,
+      "chenh_lech": 32162223,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 90.3
+    },
+    {
+      "ma_gd": "TX-2026-0050",
+      "ngay": "2026-08-22",
+      "quy": "Q3",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Bản quyền phần mềm AI & Dev",
+      "ngan_sach": 790000000,
+      "chi_tieu": 726557816,
+      "chenh_lech": 63442184,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 92.0
+    },
+    {
+      "ma_gd": "TX-2026-0051",
+      "ngay": "2026-08-15",
+      "quy": "Q3",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Nâng cấp hệ thống máy chủ",
+      "ngan_sach": 300000000,
+      "chi_tieu": 394077929,
+      "chenh_lech": -94077929,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 131.4
+    },
+    {
+      "ma_gd": "TX-2026-0052",
+      "ngay": "2026-07-07",
+      "quy": "Q3",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "An toàn thông tin & Bảo mật",
+      "ngan_sach": 600000000,
+      "chi_tieu": 565124573,
+      "chenh_lech": 34875427,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 94.2
+    },
+    {
+      "ma_gd": "TX-2026-0053",
+      "ngay": "2026-07-14",
+      "quy": "Q3",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Chiến dịch Quảng cáo Meta & Google",
+      "ngan_sach": 180000000,
+      "chi_tieu": 241431378,
+      "chenh_lech": -61431378,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 134.1
+    },
+    {
+      "ma_gd": "TX-2026-0054",
+      "ngay": "2026-07-18",
+      "quy": "Q3",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Sự kiện ra mắt sản phẩm mới",
+      "ngan_sach": 370000000,
+      "chi_tieu": 467870291,
+      "chenh_lech": -97870291,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 126.5
+    },
+    {
+      "ma_gd": "TX-2026-0055",
+      "ngay": "2026-07-10",
+      "quy": "Q3",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Thuê KOLs và Media Agency",
+      "ngan_sach": 600000000,
+      "chi_tieu": 741030736,
+      "chenh_lech": -141030736,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 123.5
+    },
+    {
+      "ma_gd": "TX-2026-0056",
+      "ngay": "2026-07-13",
+      "quy": "Q3",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Sản xuất Video & Brand Awareness",
+      "ngan_sach": 620000000,
+      "chi_tieu": 582595852,
+      "chenh_lech": 37404148,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 94.0
+    },
+    {
+      "ma_gd": "TX-2026-0057",
+      "ngay": "2026-07-02",
+      "quy": "Q3",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Chi phí tiếp khách & đàm phán hợp đồng",
+      "ngan_sach": 120000000,
+      "chi_tieu": 102163754,
+      "chenh_lech": 17836246,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 85.1
+    },
+    {
+      "ma_gd": "TX-2026-0058",
+      "ngay": "2026-07-22",
+      "quy": "Q3",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Công tác phí thị trường miền Nam & Trung",
+      "ngan_sach": 170000000,
+      "chi_tieu": 159397916,
+      "chenh_lech": 10602084,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 93.8
+    },
+    {
+      "ma_gd": "TX-2026-0059",
+      "ngay": "2026-08-21",
+      "quy": "Q3",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Thưởng hoa hồng mở rộng đại lý",
+      "ngan_sach": 580000000,
+      "chi_tieu": 440712561,
+      "chenh_lech": 139287439,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 76.0
+    },
+    {
+      "ma_gd": "TX-2026-0060",
+      "ngay": "2026-08-19",
+      "quy": "Q3",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Tham gia triển lãm B2B Quốc tế",
+      "ngan_sach": 130000000,
+      "chi_tieu": 136612079,
+      "chenh_lech": -6612079,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 105.1
+    },
+    {
+      "ma_gd": "TX-2026-0061",
+      "ngay": "2026-08-06",
+      "quy": "Q3",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Tuyển dụng Kỹ sư AI & Quản lý cấp cao",
+      "ngan_sach": 390000000,
+      "chi_tieu": 358736125,
+      "chenh_lech": 31263875,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 92.0
+    },
+    {
+      "ma_gd": "TX-2026-0062",
+      "ngay": "2026-09-10",
+      "quy": "Q3",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Chương trình đào tạo kỹ năng Clear AI",
+      "ngan_sach": 600000000,
+      "chi_tieu": 542724893,
+      "chenh_lech": 57275107,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 90.5
+    },
+    {
+      "ma_gd": "TX-2026-0063",
+      "ngay": "2026-07-08",
+      "quy": "Q3",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Teambuilding & Văn hóa doanh nghiệp",
+      "ngan_sach": 680000000,
+      "chi_tieu": 794704528,
+      "chenh_lech": -114704528,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 116.9
+    },
+    {
+      "ma_gd": "TX-2026-0064",
+      "ngay": "2026-08-10",
+      "quy": "Q3",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Khám sức khỏe định kỳ & Bảo hiểm",
+      "ngan_sach": 800000000,
+      "chi_tieu": 573654496,
+      "chenh_lech": 226345504,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 71.7
+    },
+    {
+      "ma_gd": "TX-2026-0065",
+      "ngay": "2026-09-06",
+      "quy": "Q3",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Kiểm toán độc lập báo cáo năm",
+      "ngan_sach": 130000000,
+      "chi_tieu": 161293002,
+      "chenh_lech": -31293002,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 124.1
+    },
+    {
+      "ma_gd": "TX-2026-0066",
+      "ngay": "2026-07-24",
+      "quy": "Q3",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Phí bản quyền phần mềm ERP Fast",
+      "ngan_sach": 260000000,
+      "chi_tieu": 325814163,
+      "chenh_lech": -65814163,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 125.3
+    },
+    {
+      "ma_gd": "TX-2026-0067",
+      "ngay": "2026-07-31",
+      "quy": "Q3",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Tư vấn luật & Thuế doanh nghiệp",
+      "ngan_sach": 140000000,
+      "chi_tieu": 124468332,
+      "chenh_lech": 15531668,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 88.9
+    },
+    {
+      "ma_gd": "TX-2026-0068",
+      "ngay": "2026-08-01",
+      "quy": "Q3",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Chi phí giao dịch ngân hàng & POS",
+      "ngan_sach": 570000000,
+      "chi_tieu": 801485507,
+      "chenh_lech": -231485507,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 140.6
+    },
+    {
+      "ma_gd": "TX-2026-0069",
+      "ngay": "2026-08-23",
+      "quy": "Q3",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Nghiên cứu Fine-tuning mô hình AI",
+      "ngan_sach": 800000000,
+      "chi_tieu": 698741458,
+      "chenh_lech": 101258542,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 87.3
+    },
+    {
+      "ma_gd": "TX-2026-0070",
+      "ngay": "2026-08-03",
+      "quy": "Q3",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Mua sắm thiết bị GPU phục vụ Training",
+      "ngan_sach": 800000000,
+      "chi_tieu": 630866845,
+      "chenh_lech": 169133155,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 78.9
+    },
+    {
+      "ma_gd": "TX-2026-0071",
+      "ngay": "2026-08-03",
+      "quy": "Q3",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Đăng ký sáng chế & sở hữu trí tuệ",
+      "ngan_sach": 320000000,
+      "chi_tieu": 252150874,
+      "chenh_lech": 67849126,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 78.8
+    },
+    {
+      "ma_gd": "TX-2026-0072",
+      "ngay": "2026-08-28",
+      "quy": "Q3",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Thuê chuyên gia cố vấn công nghệ",
+      "ngan_sach": 560000000,
+      "chi_tieu": 732592176,
+      "chenh_lech": -172592176,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 130.8
+    },
+    {
+      "ma_gd": "TX-2026-0073",
+      "ngay": "2026-10-02",
+      "quy": "Q4",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Hạ tầng Cloud AWS/GCP",
+      "ngan_sach": 460000000,
+      "chi_tieu": 442522576,
+      "chenh_lech": 17477424,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 96.2
+    },
+    {
+      "ma_gd": "TX-2026-0074",
+      "ngay": "2026-10-13",
+      "quy": "Q4",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Bản quyền phần mềm AI & Dev",
+      "ngan_sach": 640000000,
+      "chi_tieu": 548888461,
+      "chenh_lech": 91111539,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 85.8
+    },
+    {
+      "ma_gd": "TX-2026-0075",
+      "ngay": "2026-10-17",
+      "quy": "Q4",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "Nâng cấp hệ thống máy chủ",
+      "ngan_sach": 150000000,
+      "chi_tieu": 126247157,
+      "chenh_lech": 23752843,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 84.2
+    },
+    {
+      "ma_gd": "TX-2026-0076",
+      "ngay": "2026-11-17",
+      "quy": "Q4",
+      "phong_ban": "Công nghệ thông tin (IT)",
+      "hang_muc": "An toàn thông tin & Bảo mật",
+      "ngan_sach": 500000000,
+      "chi_tieu": 473097833,
+      "chenh_lech": 26902167,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 94.6
+    },
+    {
+      "ma_gd": "TX-2026-0077",
+      "ngay": "2026-12-30",
+      "quy": "Q4",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Chiến dịch Quảng cáo Meta & Google",
+      "ngan_sach": 420000000,
+      "chi_tieu": 581069152,
+      "chenh_lech": -161069152,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 138.3
+    },
+    {
+      "ma_gd": "TX-2026-0078",
+      "ngay": "2026-12-23",
+      "quy": "Q4",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Sự kiện ra mắt sản phẩm mới",
+      "ngan_sach": 440000000,
+      "chi_tieu": 429627113,
+      "chenh_lech": 10372887,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 97.6
+    },
+    {
+      "ma_gd": "TX-2026-0079",
+      "ngay": "2026-11-08",
+      "quy": "Q4",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Thuê KOLs và Media Agency",
+      "ngan_sach": 730000000,
+      "chi_tieu": 1005094407,
+      "chenh_lech": -275094407,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 137.7
+    },
+    {
+      "ma_gd": "TX-2026-0080",
+      "ngay": "2026-10-15",
+      "quy": "Q4",
+      "phong_ban": "Marketing & Truyền thông",
+      "hang_muc": "Sản xuất Video & Brand Awareness",
+      "ngan_sach": 190000000,
+      "chi_tieu": 140144287,
+      "chenh_lech": 49855713,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 73.8
+    },
+    {
+      "ma_gd": "TX-2026-0081",
+      "ngay": "2026-11-06",
+      "quy": "Q4",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Chi phí tiếp khách & đàm phán hợp đồng",
+      "ngan_sach": 190000000,
+      "chi_tieu": 141269828,
+      "chenh_lech": 48730172,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 74.4
+    },
+    {
+      "ma_gd": "TX-2026-0082",
+      "ngay": "2026-12-27",
+      "quy": "Q4",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Công tác phí thị trường miền Nam & Trung",
+      "ngan_sach": 830000000,
+      "chi_tieu": 985336255,
+      "chenh_lech": -155336255,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 118.7
+    },
+    {
+      "ma_gd": "TX-2026-0083",
+      "ngay": "2026-10-07",
+      "quy": "Q4",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Thưởng hoa hồng mở rộng đại lý",
+      "ngan_sach": 390000000,
+      "chi_tieu": 300422440,
+      "chenh_lech": 89577560,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 77.0
+    },
+    {
+      "ma_gd": "TX-2026-0084",
+      "ngay": "2026-10-06",
+      "quy": "Q4",
+      "phong_ban": "Kinh doanh (Sales)",
+      "hang_muc": "Tham gia triển lãm B2B Quốc tế",
+      "ngan_sach": 170000000,
+      "chi_tieu": 158476969,
+      "chenh_lech": 11523031,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 93.2
+    },
+    {
+      "ma_gd": "TX-2026-0085",
+      "ngay": "2026-11-03",
+      "quy": "Q4",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Tuyển dụng Kỹ sư AI & Quản lý cấp cao",
+      "ngan_sach": 60000000,
+      "chi_tieu": 44197770,
+      "chenh_lech": 15802230,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 73.7
+    },
+    {
+      "ma_gd": "TX-2026-0086",
+      "ngay": "2026-11-24",
+      "quy": "Q4",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Chương trình đào tạo kỹ năng Clear AI",
+      "ngan_sach": 260000000,
+      "chi_tieu": 222162334,
+      "chenh_lech": 37837666,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 85.4
+    },
+    {
+      "ma_gd": "TX-2026-0087",
+      "ngay": "2026-12-28",
+      "quy": "Q4",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Teambuilding & Văn hóa doanh nghiệp",
+      "ngan_sach": 770000000,
+      "chi_tieu": 831675108,
+      "chenh_lech": -61675108,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 108.0
+    },
+    {
+      "ma_gd": "TX-2026-0088",
+      "ngay": "2026-12-14",
+      "quy": "Q4",
+      "phong_ban": "Nhân sự & Đào tạo (HR)",
+      "hang_muc": "Khám sức khỏe định kỳ & Bảo hiểm",
+      "ngan_sach": 250000000,
+      "chi_tieu": 233421651,
+      "chenh_lech": 16578349,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 93.4
+    },
+    {
+      "ma_gd": "TX-2026-0089",
+      "ngay": "2026-11-09",
+      "quy": "Q4",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Kiểm toán độc lập báo cáo năm",
+      "ngan_sach": 760000000,
+      "chi_tieu": 836743437,
+      "chenh_lech": -76743437,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 110.1
+    },
+    {
+      "ma_gd": "TX-2026-0090",
+      "ngay": "2026-10-06",
+      "quy": "Q4",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Phí bản quyền phần mềm ERP Fast",
+      "ngan_sach": 520000000,
+      "chi_tieu": 479915407,
+      "chenh_lech": 40084593,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 92.3
+    },
+    {
+      "ma_gd": "TX-2026-0091",
+      "ngay": "2026-10-14",
+      "quy": "Q4",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Tư vấn luật & Thuế doanh nghiệp",
+      "ngan_sach": 510000000,
+      "chi_tieu": 586404066,
+      "chenh_lech": -76404066,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 115.0
+    },
+    {
+      "ma_gd": "TX-2026-0092",
+      "ngay": "2026-11-22",
+      "quy": "Q4",
+      "phong_ban": "Tài chính - Kế toán",
+      "hang_muc": "Chi phí giao dịch ngân hàng & POS",
+      "ngan_sach": 510000000,
+      "chi_tieu": 483254435,
+      "chenh_lech": 26745565,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 94.8
+    },
+    {
+      "ma_gd": "TX-2026-0093",
+      "ngay": "2026-10-31",
+      "quy": "Q4",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Nghiên cứu Fine-tuning mô hình AI",
+      "ngan_sach": 850000000,
+      "chi_tieu": 815331789,
+      "chenh_lech": 34668211,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 95.9
+    },
+    {
+      "ma_gd": "TX-2026-0094",
+      "ngay": "2026-11-22",
+      "quy": "Q4",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Mua sắm thiết bị GPU phục vụ Training",
+      "ngan_sach": 260000000,
+      "chi_tieu": 241024181,
+      "chenh_lech": 18975819,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 92.7
+    },
+    {
+      "ma_gd": "TX-2026-0095",
+      "ngay": "2026-11-22",
+      "quy": "Q4",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Đăng ký sáng chế & sở hữu trí tuệ",
+      "ngan_sach": 90000000,
+      "chi_tieu": 127781542,
+      "chenh_lech": -37781542,
+      "trang_thai": "Vượt ngân sách",
+      "phan_tram": 142.0
+    },
+    {
+      "ma_gd": "TX-2026-0096",
+      "ngay": "2026-10-14",
+      "quy": "Q4",
+      "phong_ban": "Nghiên cứu & Phát triển (R&D)",
+      "hang_muc": "Thuê chuyên gia cố vấn công nghệ",
+      "ngan_sach": 370000000,
+      "chi_tieu": 340571999,
+      "chenh_lech": 29428001,
+      "trang_thai": "Trong ngân sách",
+      "phan_tram": 92.0
+    }
+  ],
+  "metadata": {
+    "mtime": 1789914210.1478913,
+    "exported_at": "20/09/2026 21:46:06",
+    "company": "Beta Solutions Co., Ltd",
+    "brand": {
+      "budget_color": "#7C3AED",
+      "expense_color": "#06B6D4",
+      "over_budget_color": "#F43F5E",
+      "bg_color": "#0F172A"
+    }
+  }
+};
+    </script>
+    
+  
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & BRAND GUIDELINE VARIABLES (BETA SOLUTIONS)
+       ========================================================================== */
+    :root {
+      /* Brand Guideline Colors */
+      --color-budget: #7C3AED;      /* Tím Hoàng Gia (Ngân sách) */
+      --color-budget-light: #9333EA;
+      --color-budget-glow: rgba(124, 58, 237, 0.35);
+      
+      --color-expense: #06B6D4;     /* Xanh Ngọc (Chi tiêu) */
+      --color-expense-light: #22D3EE;
+      --color-expense-glow: rgba(6, 182, 212, 0.35);
+      
+      --color-over: #F43F5E;        /* Hồng San Hô (Vượt ngân sách) */
+      --color-over-light: #FB7185;
+      --color-over-glow: rgba(244, 63, 94, 0.35);
+
+      --color-success: #10B981;     /* Xanh lá trạng thái tốt */
+      --color-warning: #F59E0B;     /* Vàng hổ phách */
+      
+      /* Dark Mode Canvas & Glass Surfaces */
+      --bg-canvas: #0F172A;         /* Dark Slate Base */
+      --bg-surface-glass: rgba(30, 41, 59, 0.70);
+      --bg-surface-elevated: rgba(15, 23, 42, 0.85);
+      --bg-surface-card: rgba(30, 41, 59, 0.55);
+      
+      /* Borders & Glass Highlights */
+      --border-glass: rgba(255, 255, 255, 0.09);
+      --border-glass-hover: rgba(255, 255, 255, 0.22);
+      --border-budget: rgba(124, 58, 237, 0.5);
+      --border-expense: rgba(6, 182, 212, 0.5);
+      --border-over: rgba(244, 63, 94, 0.5);
+      
+      /* Typography Colors */
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --text-inverse: #0F172A;
+      
+      /* Fonts */
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      /* Transitions */
+      --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ==========================================================================
+       2. RESET & BASE LAYOUT
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(124, 58, 237, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 42%),
+        radial-gradient(circle at 50% 80%, rgba(244, 63, 94, 0.08) 0%, transparent 55%),
+        radial-gradient(circle at 75% 90%, rgba(124, 58, 237, 0.09) 0%, transparent 40%);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px 32px;
+    }
+
+    /* ==========================================================================
+       3. GLASSMORPHIC UTILITIES
+       ========================================================================== */
+    .glass-card {
+      background: var(--bg-surface-glass);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid var(--border-glass);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card:hover {
+      border-color: var(--border-glass-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    }
+
+    /* ==========================================================================
+       4. HEADER COMPONENT
+       ========================================================================== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 28px;
+      margin-bottom: 24px;
+      border-radius: 20px;
+      background: rgba(30, 41, 59, 0.75);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-glass);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--color-budget) 0%, var(--color-expense) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px var(--color-budget-glow);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .brand-info h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-company {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(124, 58, 237, 0.2);
+      border: 1px solid var(--border-budget);
+      color: #C4B5FD;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-info p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Live Heartbeat Status */
+    .sync-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--color-expense);
+      box-shadow: 0 0 10px var(--color-expense);
+      animation: pulseAnimation 2s infinite;
+    }
+
+    @keyframes pulseAnimation {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7); }
+      70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(6, 182, 212, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+    }
+
+    .btn-export {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--color-budget) 0%, #6D28D9 100%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px var(--color-budget-glow);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-export:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(124, 58, 237, 0.5);
+      background: linear-gradient(135deg, var(--color-budget-light) 0%, var(--color-budget) 100%);
+    }
+
+    .btn-export:active {
+      transform: translateY(0);
+    }
+
+    .btn-telegram {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid var(--border-expense);
+      border-radius: 12px;
+      color: #67E8F9;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.2);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-telegram:hover {
+      background: rgba(6, 182, 212, 0.28);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(6, 182, 212, 0.35);
+      color: #FFFFFF;
+    }
+
+    .btn-telegram:active {
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       5. FILTER BAR
+       ========================================================================== */
+    .filter-section {
+      padding: 16px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pill-group {
+      display: flex;
+      background: rgba(15, 23, 42, 0.65);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border-glass);
+      gap: 4px;
+    }
+
+    .filter-pill {
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-pill:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .filter-pill.active {
+      background: var(--color-budget);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px var(--color-budget-glow);
+    }
+
+    .custom-select {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border-glass);
+      border-radius: 12px;
+      padding: 8px 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .custom-select:focus {
+      border-color: var(--color-expense);
+      box-shadow: 0 0 0 3px var(--color-expense-glow);
+    }
+
+    .custom-select option {
+      background: #1E293B;
+      color: #FFFFFF;
+    }
+
+    .search-input {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--border-glass);
+      border-radius: 12px;
+      padding: 8px 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      min-width: 220px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .search-input:focus {
+      border-color: var(--color-budget);
+      box-shadow: 0 0 0 3px var(--color-budget-glow);
+    }
+
+    .btn-reset {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-glass);
+      border-radius: 10px;
+      padding: 8px 14px;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-reset:hover {
+      color: #FFF;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* ==========================================================================
+       6. KPI CARDS (TOP METRIC TIER - 3 CARDS)
+       ========================================================================== */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* Distinct glowing accents per Brand Guideline */
+    .kpi-card.budget-card {
+      border-left: 4px solid var(--color-budget);
+    }
+    .kpi-card.budget-card::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -30%;
+      width: 140px;
+      height: 140px;
+      background: var(--color-budget-glow);
+      filter: blur(45px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .kpi-card.expense-card {
+      border-left: 4px solid var(--color-expense);
+    }
+    .kpi-card.expense-card::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -30%;
+      width: 140px;
+      height: 140px;
+      background: var(--color-expense-glow);
+      filter: blur(45px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .kpi-card.over-card {
+      border-left: 4px solid var(--color-over);
+    }
+    .kpi-card.over-card::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -30%;
+      width: 140px;
+      height: 140px;
+      background: var(--color-over-glow);
+      filter: blur(45px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .kpi-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+    }
+
+    .kpi-icon-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .budget-badge {
+      background: rgba(124, 58, 237, 0.15);
+      color: var(--color-budget-light);
+      border: 1px solid var(--border-budget);
+    }
+
+    .expense-badge {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--color-expense-light);
+      border: 1px solid var(--border-expense);
+    }
+
+    .over-badge {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--color-over-light);
+      border: 1px solid var(--border-over);
+    }
+
+    .kpi-value-container {
+      margin-bottom: 12px;
+    }
+
+    .kpi-value {
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      font-family: var(--font-sans);
+    }
+
+    .kpi-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .kpi-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tag-budget {
+      background: rgba(124, 58, 237, 0.15);
+      color: #C4B5FD;
+      border: 1px solid var(--border-budget);
+    }
+
+    .tag-expense {
+      background: rgba(6, 182, 212, 0.15);
+      color: #67E8F9;
+      border: 1px solid var(--border-expense);
+    }
+
+    .tag-over {
+      background: rgba(244, 63, 94, 0.15);
+      color: #FDA4AF;
+      border: 1px solid var(--border-over);
+    }
+
+    /* ==========================================================================
+       7. VISUAL ANALYTICS GRID (2 CHARTS)
+       ========================================================================== */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .chart-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .chart-title-wrap h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chart-subtitle {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 3px;
+    }
+
+    .chart-container {
+      position: relative;
+      flex: 1;
+      min-height: 320px;
+    }
+
+    /* ==========================================================================
+       8. TRANSACTION TABLE COMPONENT
+       ========================================================================== */
+    .table-section {
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .table-header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .table-header-wrap h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-secondary);
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-glass);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      transition: background 0.15s ease;
+    }
+
+    tbody tr:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    tbody td {
+      padding: 12px 16px;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .code-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: #E2E8F0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Status Badges */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .status-ok {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .status-ok-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
+    .status-over {
+      background: rgba(244, 63, 94, 0.15);
+      color: #FB7185;
+      border: 1px solid var(--border-over);
+      box-shadow: 0 0 10px rgba(244, 63, 94, 0.2);
+    }
+
+    .status-over-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-over);
+    }
+
+    .currency-budget {
+      color: #C4B5FD;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .currency-expense {
+      color: #67E8F9;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .currency-diff-neg {
+      color: #FDA4AF;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .currency-diff-pos {
+      color: #6EE7B7;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    /* Pagination */
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .pagination-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .page-btn {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border-glass);
+      color: var(--text-primary);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: var(--transition-smooth);
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--border-glass-hover);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* ==========================================================================
+       9. MODAL POPUP FOR EXPORT & PASSWORD
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(10, 15, 29, 0.82);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      width: 90%;
+      max-width: 520px;
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px var(--color-budget-glow);
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.15);
+      border: 2px solid #10B981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #10B981;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .modal-box h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .modal-box p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .password-card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed var(--border-budget);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .password-display {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: #A78BFA;
+      letter-spacing: 0.1em;
+    }
+
+    .btn-copy {
+      background: var(--color-budget);
+      border: none;
+      color: #FFF;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-copy:hover {
+      background: var(--color-budget-light);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn-modal-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-glass);
+      color: #FFFFFF;
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-modal-close:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-modal-download {
+      background: linear-gradient(135deg, var(--color-expense) 0%, #0891B2 100%);
+      border: none;
+      color: #FFFFFF;
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px var(--color-expense-glow);
+      transition: var(--transition-smooth);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-modal-download:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(6, 182, 212, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .charts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- ==================== HEADER ==================== -->
+    <header class="glass-card">
+      <div class="brand-group">
+        <div class="brand-logo">β</div>
+        <div class="brand-info">
+          <h1>
+            BETA SOLUTIONS
+            <span class="badge-company">Tài Chính Doanh Nghiệp</span>
+          </h1>
+          <p>Hệ Thống Giám Sát & Quản Lý Ngân Sách Phòng Ban (Executive BI)</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="sync-status" id="syncStatus">
+          <div class="pulse-dot" id="syncDot"></div>
+          <span id="syncText">Real-time Sync (2s)</span>
+        </div>
+        <button class="btn-telegram" id="btnSendTelegram" onclick="handleSendTelegram()">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.99 1.27-5.63 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.38-.49 1.03-.75 4.04-1.76 6.74-2.92 8.09-3.5 3.85-1.6 4.65-1.88 5.17-1.89.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.19-.03.25z"/>
+          </svg>
+          Gửi Qua Telegram
+        </button>
+        <button class="btn-export" id="btnExportStatic" onclick="handleExportStatic()">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Xuất Dashboard Tĩnh & Tải ZIP
+        </button>
+      </div>
+    </header>
+
+    <!-- ==================== FILTER BAR ==================== -->
+    <section class="glass-card filter-section">
+      <!-- Filter Quý -->
+      <div class="filter-group">
+        <span class="filter-label">Kỳ Báo Cáo (Quý):</span>
+        <div class="pill-group" id="quyPills">
+          <button class="filter-pill active" data-quy="ALL">Tất cả</button>
+          <button class="filter-pill" data-quy="Q1">Q1</button>
+          <button class="filter-pill" data-quy="Q2">Q2</button>
+          <button class="filter-pill" data-quy="Q3">Q3</button>
+          <button class="filter-pill" data-quy="Q4">Q4</button>
+        </div>
+      </div>
+
+      <!-- Filter Phòng Ban -->
+      <div class="filter-group">
+        <span class="filter-label">Phòng Ban:</span>
+        <select class="custom-select" id="pbSelect">
+          <option value="ALL">🏢 Tất cả phòng ban (6 phòng)</option>
+          <option value="Công nghệ thông tin (IT)">💻 Công nghệ thông tin (IT)</option>
+          <option value="Marketing & Truyền thông">📢 Marketing & Truyền thông</option>
+          <option value="Kinh doanh (Sales)">📈 Kinh doanh (Sales)</option>
+          <option value="Nhân sự & Đào tạo (HR)">👥 Nhân sự & Đào tạo (HR)</option>
+          <option value="Tài chính - Kế toán">💰 Tài chính - Kế toán</option>
+          <option value="Nghiên cứu & Phát triển (R&D)">🔬 Nghiên cứu & Phát triển (R&D)</option>
+        </select>
+      </div>
+
+      <!-- Tìm kiếm & Đặt lại -->
+      <div class="filter-group">
+        <input type="text" class="search-input" id="tableSearch" placeholder="🔍 Tìm mã GD, hạng mục..." />
+        <button class="btn-reset" onclick="resetFilters()">Đặt lại bộ lọc</button>
+      </div>
+    </section>
+
+    <!-- ==================== TOP KPI TIER (3 CARDS) ==================== -->
+    <section class="kpi-grid">
+      <!-- KPI 1: Tổng Ngân Sách Dự Kiến -->
+      <div class="glass-card kpi-card budget-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Tổng Ngân Sách Dự Kiến</span>
+          <div class="kpi-icon-badge budget-badge">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="kpi-value-container">
+          <div class="kpi-value" id="kpiBudget">0 ₫</div>
+        </div>
+        <div class="kpi-footer">
+          <span class="kpi-tag tag-budget">Kế hoạch đã phê duyệt</span>
+          <span id="kpiBudgetCount">96 hạng mục</span>
+        </div>
+      </div>
+
+      <!-- KPI 2: Tổng Chi Tiêu Thực Tế -->
+      <div class="glass-card kpi-card expense-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Tổng Chi Tiêu Thực Tế</span>
+          <div class="kpi-icon-badge expense-badge">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="kpi-value-container">
+          <div class="kpi-value" id="kpiExpense">0 ₫</div>
+        </div>
+        <div class="kpi-footer">
+          <span class="kpi-tag tag-expense" id="kpiExpenseRate">Tỷ lệ: 0%</span>
+          <span id="kpiDiffText">Chênh lệch: 0 ₫</span>
+        </div>
+      </div>
+
+      <!-- KPI 3: Giao Dịch Vượt Ngân Sách -->
+      <div class="glass-card kpi-card over-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Giao Dịch Vượt Ngân Sách</span>
+          <div class="kpi-icon-badge over-badge">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="kpi-value-container">
+          <div class="kpi-value" id="kpiOverCount">0</div>
+        </div>
+        <div class="kpi-footer">
+          <span class="kpi-tag tag-over" id="kpiOverRate">Cảnh báo: 0%</span>
+          <span id="kpiOverSubtitle">Hạng mục cần kiểm soát</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VISUAL ANALYTICS GRID (2 CHARTS) ==================== -->
+    <section class="charts-grid">
+      <!-- Chart 1: Biểu đồ cột ghép (Ngân sách vs Chi tiêu) -->
+      <div class="glass-card chart-card">
+        <div class="chart-header">
+          <div class="chart-title-wrap">
+            <h2>
+              <span style="color: var(--color-budget)">■</span> Ngân Sách vs <span style="color: var(--color-expense)">■</span> Chi Tiêu Thực Tế
+            </h2>
+            <div class="chart-subtitle" id="barChartSubtitle">So sánh chi tiết kế hoạch vs thực tế theo từng Phòng ban</div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Biểu đồ tròn (Tỷ trọng chi tiêu) -->
+      <div class="glass-card chart-card">
+        <div class="chart-header">
+          <div class="chart-title-wrap">
+            <h2>🥧 Tỷ Trọng Chi Tiêu</h2>
+            <div class="chart-subtitle" id="donutChartSubtitle">Cơ cấu ngân sách đã giải ngân theo phòng ban</div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="donutChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DETAILED TRANSACTION TABLE ==================== -->
+    <section class="glass-card table-section">
+      <div class="table-header-wrap">
+        <h3>
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          </svg>
+          Danh Sách Giao Dịch Chi Tiết
+        </h3>
+        <span class="badge-company" id="tableRowCount">Hiển thị 0 giao dịch</span>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Mã GD</th>
+              <th>Ngày</th>
+              <th>Quý</th>
+              <th>Phòng Ban</th>
+              <th>Hạng Mục Chi Phí</th>
+              <th style="text-align: right;">Ngân Sách (₫)</th>
+              <th style="text-align: right;">Chi Tiêu (₫)</th>
+              <th style="text-align: right;">Chênh Lệch (₫)</th>
+              <th style="text-align: center;">% Sử Dụng</th>
+              <th style="text-align: center;">Trạng Thái</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTableBody">
+            <!-- Rows dynamically injected -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar">
+        <div id="pageInfo">Trang 1 / 1</div>
+        <div class="pagination-controls">
+          <button class="page-btn" id="btnPrevPage" onclick="changePage(-1)">◀ Trang trước</button>
+          <button class="page-btn" id="btnNextPage" onclick="changePage(1)">Trang sau ▶</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ==================== MODAL POPUP FOR EXPORT & PASSWORD ==================== -->
+  <div class="modal-overlay" id="exportModal">
+    <div class="modal-box">
+      <div class="modal-icon">✓</div>
+      <h3>Xuất Dashboard Tĩnh Thành Công!</h3>
+      <p>
+        File HTML tĩnh độc lập và bản nén ZIP có mật khẩu bảo vệ đã được tạo thành công vào thư mục <code>outputs/dashboards/</code>.
+      </p>
+
+      <div class="password-card">
+        <div style="text-align: left;">
+          <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Mật khẩu mở file nén (ZIP)</div>
+          <div class="password-display" id="modalPassword">beta2026</div>
+        </div>
+        <button class="btn-copy" onclick="copyPassword()">Sao Chép</button>
+      </div>
+
+      <div class="modal-actions">
+        <a href="/api/download-zip" class="btn-modal-download" id="downloadZipLink" download="Beta_Solutions_Dashboard_Protected.zip">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Tải Lại Bản ZIP
+        </a>
+        <button class="btn-modal-close" onclick="closeExportModal()">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       10. APPLICATION LOGIC & REAL-TIME ENGINE
+       ========================================================================== -->
+  <script>
+    // --- State Management ---
+    let appState = {
+      rawDataset: null,
+      filteredTransactions: [],
+      selectedQuy: 'ALL',
+      selectedPB: 'ALL',
+      searchQuery: '',
+      currentPage: 1,
+      rowsPerPage: 10,
+      lastMtime: null,
+      isPolling: false
+    };
+
+    let barChartInstance = null;
+    let donutChartInstance = null;
+
+    // --- Currency Formatter ---
+    function formatCurrency(num) {
+      if (num === null || num === undefined || isNaN(num)) return '0 ₫';
+      return new Intl.NumberFormat('vi-VN').format(num) + ' ₫';
+    }
+
+    function formatShortCurrency(num) {
+      if (Math.abs(num) >= 1000000000) {
+        return (num / 1000000000).toFixed(2) + ' Tỷ';
+      }
+      if (Math.abs(num) >= 1000000) {
+        return (num / 1000000).toFixed(1) + ' Tr';
+      }
+      return formatCurrency(num);
+    }
+
+    // --- Count-Up Animation Engine ---
+    function animateCountUp(elementId, targetValue, isCurrency = true) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+
+      const duration = 800; // ms
+      const start = performance.now();
+      const initial = 0;
+
+      function update(currentTime) {
+        const elapsed = currentTime - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Easing out quint
+        const ease = 1 - Math.pow(1 - progress, 5);
+        const current = initial + (targetValue - initial) * ease;
+
+        if (isCurrency) {
+          el.innerText = formatCurrency(Math.round(current));
+        } else {
+          el.innerText = Math.round(current);
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          if (isCurrency) {
+            el.innerText = formatCurrency(targetValue);
+          } else {
+            el.innerText = targetValue;
+          }
+        }
+      }
+      requestAnimationFrame(update);
+    }
+
+    // --- Initialize Data ---
+    function initData() {
+      // 1. Check if running in Static Snapshot mode
+      if (window.IS_STATIC_DASHBOARD && window.STATIC_DATA) {
+        console.log('⚡ Running in OFFLINE STATIC SNAPSHOT mode');
+        appState.rawDataset = window.STATIC_DATA;
+        
+        // Update header indicator
+        document.getElementById('syncDot').style.background = '#10B981';
+        document.getElementById('syncDot').style.animation = 'none';
+        document.getElementById('syncText').innerText = 'Offline Snapshot: ' + (window.STATIC_DATA.metadata?.exported_at || 'Đã xuất');
+        
+        applyFiltersAndRender();
+        return;
+      }
+
+      // 2. Running with Python Server (Real-time polling)
+      fetchDataFromServer(true);
+      setInterval(() => {
+        fetchDataFromServer(false);
+      }, 2000);
+    }
+
+    async function fetchDataFromServer(isFirstLoad = false) {
+      if (appState.isPolling) return;
+      appState.isPolling = true;
+
+      try {
+        const res = await fetch('/api/data?t=' + Date.now());
+        if (!res.ok) throw new Error('API status: ' + res.status);
+        const data = await res.json();
+
+        // Check if data changed via mtime
+        const currentMtime = data.metadata?.mtime;
+        if (isFirstLoad || currentMtime !== appState.lastMtime) {
+          console.log('🔄 Data updated from server (mtime: ' + currentMtime + ')');
+          appState.rawDataset = data;
+          appState.lastMtime = currentMtime;
+          applyFiltersAndRender();
+        }
+      } catch (err) {
+        console.warn('⚠️ Server poll failed or running offline:', err);
+      } finally {
+        appState.isPolling = false;
+      }
+    }
+
+    // --- Filter Handlers ---
+    function applyFiltersAndRender() {
+      if (!appState.rawDataset || !appState.rawDataset.transactions) return;
+
+      const allTx = appState.rawDataset.transactions;
+      const q = appState.selectedQuy;
+      const pb = appState.selectedPB;
+      const search = appState.searchQuery.trim().toLowerCase();
+
+      // Filter transactions
+      appState.filteredTransactions = allTx.filter(item => {
+        const matchQuy = (q === 'ALL' || item.quy === q);
+        const matchPB = (pb === 'ALL' || item.phong_ban === pb);
+        const matchSearch = !search || 
+          item.ma_gd.toLowerCase().includes(search) || 
+          item.hang_muc.toLowerCase().includes(search) || 
+          item.phong_ban.toLowerCase().includes(search);
+        return matchQuy && matchPB && matchSearch;
+      });
+
+      // Reset to page 1 on filter
+      appState.currentPage = 1;
+
+      // Update UI components
+      updateKPICards();
+      updateCharts();
+      renderTransactionTable();
+    }
+
+    // --- Update KPI Cards ---
+    function updateKPICards() {
+      const list = appState.filteredTransactions;
+      const totalBudget = list.reduce((sum, item) => sum + item.ngan_sach, 0);
+      const totalExpense = list.reduce((sum, item) => sum + item.chi_tieu, 0);
+      const overTxList = list.filter(item => item.trang_thai === 'Vượt ngân sách');
+      const overCount = overTxList.length;
+      const totalTx = list.length;
+      const diff = totalBudget - totalExpense;
+      const rate = totalBudget > 0 ? ((totalExpense / totalBudget) * 100).toFixed(1) : 0;
+      const overRate = totalTx > 0 ? ((overCount / totalTx) * 100).toFixed(1) : 0;
+
+      // Animate KPI values
+      animateCountUp('kpiBudget', totalBudget, true);
+      animateCountUp('kpiExpense', totalExpense, true);
+      animateCountUp('kpiOverCount', overCount, false);
+
+      // Footer labels
+      document.getElementById('kpiBudgetCount').innerText = `${totalTx} hạng mục`;
+      document.getElementById('kpiExpenseRate').innerText = `Tỷ lệ: ${rate}%`;
+      
+      const diffEl = document.getElementById('kpiDiffText');
+      if (diff >= 0) {
+        diffEl.innerText = `Dư: +${formatShortCurrency(diff)}`;
+        diffEl.style.color = '#34D399';
+      } else {
+        diffEl.innerText = `Bội chi: -${formatShortCurrency(Math.abs(diff))}`;
+        diffEl.style.color = '#FDA4AF';
+      }
+
+      document.getElementById('kpiOverRate').innerText = `Cảnh báo: ${overRate}%`;
+      document.getElementById('kpiOverSubtitle').innerText = `${overCount}/${totalTx} giao dịch`;
+    }
+
+    // --- Update Charts (Chart.js) ---
+    function updateCharts() {
+      const list = appState.filteredTransactions;
+      const selectedPB = appState.selectedPB;
+
+      // --- Chart 1: Paired Bar Chart (Ngân sách vs Chi tiêu) ---
+      let labels = [];
+      let budgetData = [];
+      let expenseData = [];
+
+      if (selectedPB === 'ALL') {
+        // Group by 6 Departments
+        document.getElementById('barChartSubtitle').innerText = 'So sánh Ngân sách vs Chi tiêu theo từng Phòng ban';
+        const pbGroups = {};
+        list.forEach(item => {
+          if (!pbGroups[item.phong_ban]) {
+            pbGroups[item.phong_ban] = { budget: 0, expense: 0 };
+          }
+          pbGroups[item.phong_ban].budget += item.ngan_sach;
+          pbGroups[item.phong_ban].expense += item.chi_tieu;
+        });
+
+        labels = Object.keys(pbGroups);
+        budgetData = labels.map(pb => pbGroups[pb].budget);
+        expenseData = labels.map(pb => pbGroups[pb].expense);
+      } else {
+        // When a specific department is selected: Group by Q1, Q2, Q3, Q4
+        document.getElementById('barChartSubtitle').innerText = `Tiến độ chi tiêu các Quý của ${selectedPB}`;
+        const quyOrder = ['Q1', 'Q2', 'Q3', 'Q4'];
+        labels = quyOrder;
+        budgetData = quyOrder.map(q => {
+          return list.filter(item => item.quy === q).reduce((s, it) => s + it.ngan_sach, 0);
+        });
+        expenseData = quyOrder.map(q => {
+          return list.filter(item => item.quy === q).reduce((s, it) => s + it.chi_tieu, 0);
+        });
+      }
+
+      renderBarChart(labels, budgetData, expenseData);
+
+      // --- Chart 2: Donut Chart ---
+      let donutLabels = [];
+      let donutValues = [];
+
+      if (selectedPB === 'ALL') {
+        document.getElementById('donutChartSubtitle').innerText = 'Cơ cấu chi tiêu phân bổ theo 6 Phòng ban';
+        const pbMap = {};
+        list.forEach(item => {
+          pbMap[item.phong_ban] = (pbMap[item.phong_ban] || 0) + item.chi_tieu;
+        });
+        donutLabels = Object.keys(pbMap);
+        donutValues = Object.values(pbMap);
+      } else {
+        document.getElementById('donutChartSubtitle').innerText = `Cơ cấu chi tiêu theo Hạng mục trong ${selectedPB}`;
+        const catMap = {};
+        list.forEach(item => {
+          catMap[item.hang_muc] = (catMap[item.hang_muc] || 0) + item.chi_tieu;
+        });
+        donutLabels = Object.keys(catMap);
+        donutValues = Object.values(catMap);
+      }
+
+      renderDonutChart(donutLabels, donutValues);
+    }
+
+    function renderBarChart(labels, budgetData, expenseData) {
+      const ctx = document.getElementById('barChart').getContext('2d');
+
+      if (barChartInstance) {
+        barChartInstance.destroy();
+      }
+
+      barChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Ngân Sách (Dự kiến)',
+              data: budgetData,
+              backgroundColor: '#7C3AED', // Brand Color: Tím Hoàng Gia
+              borderRadius: 6,
+              barPercentage: 0.75,
+              categoryPercentage: 0.65
+            },
+            {
+              label: 'Chi Tiêu (Thực tế)',
+              data: expenseData,
+              backgroundColor: '#06B6D4', // Brand Color: Xanh Ngọc
+              borderRadius: 6,
+              barPercentage: 0.75,
+              categoryPercentage: 0.65
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 600 },
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                color: '#94A3B8',
+                font: { family: 'Plus Jakarta Sans', size: 12, weight: 600 },
+                usePointStyle: true,
+                pointStyle: 'rectRounded'
+              }
+            },
+            tooltip: {
+              backgroundColor: '#1E293B',
+              titleColor: '#F8FAFC',
+              bodyColor: '#CBD5E1',
+              borderColor: 'rgba(255, 255, 255, 0.1)',
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: function(context) {
+                  return ` ${context.dataset.label}: ${formatCurrency(context.raw)}`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                color: '#94A3B8',
+                font: { family: 'Plus Jakarta Sans', size: 11, weight: 600 }
+              }
+            },
+            y: {
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: {
+                color: '#64748B',
+                callback: function(value) {
+                  return formatShortCurrency(value);
+                },
+                font: { family: 'Plus Jakarta Sans', size: 11 }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function renderDonutChart(labels, values) {
+      const ctx = document.getElementById('donutChart').getContext('2d');
+
+      if (donutChartInstance) {
+        donutChartInstance.destroy();
+      }
+
+      // Elegant palette matching Brand: Violet, Cyan, Coral, Emerald, Amber, Indigo
+      const palette = [
+        '#7C3AED', '#06B6D4', '#F43F5E', '#10B981', '#F59E0B', '#6366F1',
+        '#8B5CF6', '#22D3EE', '#FB7185', '#34D399', '#FBBF24', '#818CF8'
+      ];
+
+      donutChartInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: values,
+            backgroundColor: palette.slice(0, labels.length),
+            borderWidth: 2,
+            borderColor: '#0F172A',
+            hoverOffset: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 600 },
+          cutout: '68%',
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: '#94A3B8',
+                font: { family: 'Plus Jakarta Sans', size: 11 },
+                boxWidth: 10,
+                padding: 10
+              }
+            },
+            tooltip: {
+              backgroundColor: '#1E293B',
+              titleColor: '#F8FAFC',
+              bodyColor: '#CBD5E1',
+              borderColor: 'rgba(255, 255, 255, 0.1)',
+              borderWidth: 1,
+              padding: 10,
+              callbacks: {
+                label: function(context) {
+                  const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                  const pct = total > 0 ? ((context.raw / total) * 100).toFixed(1) : 0;
+                  return ` ${context.label}: ${formatCurrency(context.raw)} (${pct}%)`;
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // --- Render Transaction Table with Pagination ---
+    function renderTransactionTable() {
+      const list = appState.filteredTransactions;
+      const total = list.length;
+      document.getElementById('tableRowCount').innerText = `Hiển thị ${total} giao dịch`;
+
+      const startIdx = (appState.currentPage - 1) * appState.rowsPerPage;
+      const endIdx = startIdx + appState.rowsPerPage;
+      const pageRows = list.slice(startIdx, endIdx);
+
+      const tbody = document.getElementById('transactionTableBody');
+      tbody.innerHTML = '';
+
+      if (pageRows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding: 24px; color: var(--text-muted);">Không tìm thấy giao dịch nào phù hợp với bộ lọc.</td></tr>`;
+        document.getElementById('pageInfo').innerText = 'Trang 0 / 0';
+        document.getElementById('btnPrevPage').disabled = true;
+        document.getElementById('btnNextPage').disabled = true;
+        return;
+      }
+
+      pageRows.forEach(tx => {
+        const isOver = tx.trang_thai === 'Vượt ngân sách';
+        const statusBadge = isOver ?
+          `<span class="status-badge status-over"><span class="status-over-dot"></span>Vượt ngân sách</span>` :
+          `<span class="status-badge status-ok"><span class="status-ok-dot"></span>Trong ngân sách</span>`;
+
+        const diffClass = tx.chenh_lech < 0 ? 'currency-diff-neg' : 'currency-diff-pos';
+        const diffSign = tx.chenh_lech > 0 ? '+' : '';
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><span class="code-pill">${tx.ma_gd}</span></td>
+          <td>${tx.ngay}</td>
+          <td><span class="code-pill">${tx.quy}</span></td>
+          <td><strong>${tx.phong_ban}</strong></td>
+          <td>${tx.hang_muc}</td>
+          <td style="text-align: right;" class="currency-budget">${formatCurrency(tx.ngan_sach)}</td>
+          <td style="text-align: right;" class="currency-expense">${formatCurrency(tx.chi_tieu)}</td>
+          <td style="text-align: right;" class="${diffClass}">${diffSign}${formatCurrency(tx.chenh_lech)}</td>
+          <td style="text-align: center; font-weight: 700;">${tx.phan_tram}%</td>
+          <td style="text-align: center;">${statusBadge}</td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      // Update Pagination Info
+      const totalPages = Math.ceil(total / appState.rowsPerPage) || 1;
+      document.getElementById('pageInfo').innerText = `Trang ${appState.currentPage} / ${totalPages} (${total} bản ghi)`;
+      document.getElementById('btnPrevPage').disabled = (appState.currentPage <= 1);
+      document.getElementById('btnNextPage').disabled = (appState.currentPage >= totalPages);
+    }
+
+    function changePage(delta) {
+      const totalPages = Math.ceil(appState.filteredTransactions.length / appState.rowsPerPage) || 1;
+      const newPage = appState.currentPage + delta;
+      if (newPage >= 1 && newPage <= totalPages) {
+        appState.currentPage = newPage;
+        renderTransactionTable();
+      }
+    }
+
+    function resetFilters() {
+      appState.selectedQuy = 'ALL';
+      appState.selectedPB = 'ALL';
+      appState.searchQuery = '';
+      
+      document.getElementById('pbSelect').value = 'ALL';
+      document.getElementById('tableSearch').value = '';
+      
+      document.querySelectorAll('#quyPills .filter-pill').forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.quy === 'ALL');
+      });
+
+      applyFiltersAndRender();
+    }
+
+    // --- Export Static & Modal Handler ---
+    async function handleExportStatic() {
+      const btn = document.getElementById('btnExportStatic');
+      btn.disabled = true;
+      btn.innerText = '⏳ Đang xuất file...';
+
+      try {
+        // If server is active, trigger server export
+        const res = await fetch('/api/export-static', { method: 'POST' });
+        if (res.ok) {
+          const result = await res.json();
+          document.getElementById('modalPassword').innerText = result.password || 'beta2026';
+          document.getElementById('exportModal').classList.add('active');
+          
+          // Auto download the protected zip
+          const dlLink = document.createElement('a');
+          dlLink.href = '/api/download-zip';
+          dlLink.download = 'Beta_Solutions_Dashboard_Protected.zip';
+          document.body.appendChild(dlLink);
+          dlLink.click();
+          document.body.removeChild(dlLink);
+        } else {
+          fallbackClientExport();
+        }
+      } catch (e) {
+        console.warn('Backend export endpoint unavailable, triggering client-side download:', e);
+        fallbackClientExport();
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Xuất Dashboard Tĩnh & Tải ZIP
+        `;
+      }
+    }
+
+    // --- Send Telegram Handler ---
+    async function handleSendTelegram() {
+      const btn = document.getElementById('btnSendTelegram');
+      if (!btn) return;
+      btn.disabled = true;
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = '⏳ Đang gửi Telegram...';
+
+      try {
+        const res = await fetch('/api/send-telegram', { method: 'POST' });
+        const result = await res.json();
+        if (res.ok && result.success) {
+          alert('✅ ĐÃ GỬI THÀNH CÔNG VÀO TELEGRAM!\n\nĐã chuyển trọn bộ 2 file:\n1. Beta_Solutions_Dashboard_Protected.zip (Mật khẩu: beta2026)\n2. Beta_Solutions_Dashboard_Static.html (Mở xem trực tiếp)');
+        } else {
+          alert('⚠️ Không thể gửi Telegram: ' + (result.error || result.message || 'Lỗi không xác định'));
+        }
+      } catch (err) {
+        alert('⚠️ Không thể kết nối tới server để gửi Telegram: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalHtml;
+      }
+    }
+
+    function fallbackClientExport() {
+      // Direct offline download of standalone HTML
+      const htmlSource = document.documentElement.outerHTML;
+      const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Beta_Solutions_Dashboard_Static.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      document.getElementById('modalPassword').innerText = 'beta2026';
+      document.getElementById('exportModal').classList.add('active');
+    }
+
+    function closeExportModal() {
+      document.getElementById('exportModal').classList.remove('active');
+    }
+
+    function copyPassword() {
+      const pwd = document.getElementById('modalPassword').innerText;
+      navigator.clipboard.writeText(pwd).then(() => {
+        alert('Đã sao chép mật khẩu: ' + pwd);
+      }).catch(() => {
+        prompt('Sao chép mật khẩu bên dưới:', pwd);
+      });
+    }
+
+    // --- DOM Event Listeners ---
+    document.addEventListener('DOMContentLoaded', () => {
+      // Quý pills click
+      document.querySelectorAll('#quyPills .filter-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('#quyPills .filter-pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          appState.selectedQuy = pill.dataset.quy;
+          applyFiltersAndRender();
+        });
+      });
+
+      // Phòng ban dropdown change
+      document.getElementById('pbSelect').addEventListener('change', (e) => {
+        appState.selectedPB = e.target.value;
+        applyFiltersAndRender();
+      });
+
+      // Table search input
+      document.getElementById('tableSearch').addEventListener('input', (e) => {
+        appState.searchQuery = e.target.value;
+        applyFiltersAndRender();
+      });
+
+      // Start data load
+      initData();
+    });
+  </script>
+</body>
+</html>
